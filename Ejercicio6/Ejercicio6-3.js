@@ -4,7 +4,7 @@ const fs = require("node:fs");
 const servidor = http.createServer((pedido, respuesta) => {
   const url = new URL("http://localhost:8888" + pedido.url);
   let camino = "static" + url.pathname;
-  if (camino === "static/") camino = "static/Index.html"; // ← Comparación estricta (===)
+  if (camino === "static/") camino = "static/Index.html"; 
   fs.stat(camino, (error) => {
     if (!error) {
       fs.readFile(camino, (error, contenido) => {
